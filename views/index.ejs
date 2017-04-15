@@ -1,11 +1,25 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
-</html>
+<%- include templates/header %>
+<%= vacs %>
+	<% vacs.forEach(function(vacs){ %>
+	<div class="panel panel-default articles_div">
+			<%= vacs.contant %>
+			dss
+	</div>
+	<% }); %>
+	<form action="">
+		<textarea name="" id="" cols="30" rows="10"></textarea>
+		<input type="button" value="add">
+	</form>
+
+
+<!-- 	<div class="panel panel-primary pull-right">
+  <div class="panel-heading">
+    <h3 class="panel-title">推荐用户</h3>
+  </div>
+  <% vacs.forEach(function(vacs){ %>
+      <div class="panel-body users" style="padding: 10px 60px 10px 10px">
+        <a href="/<%= vacs.name %>/space"><%= vacs.name %></a>
+      </div>
+  <% }); %>
+</div> -->
+<%- include templates/footer %>
