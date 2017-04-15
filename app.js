@@ -8,11 +8,11 @@ var fs = require('fs');
 var routes = require('./routes/index');
 // var users = require('./routes/users');
 
-// var mongoose = require("mongoose");
-// var db = mongoose.connect("mongodb://localhost/box");
-
 var mongoose = require("mongoose");
-var db = mongoose.connect('mongodb://localhost/web');
+var db = mongoose.connect("mongodb://localhost/box");
+
+// var mongoose = require("mongoose");
+// var db = mongoose.connect('mongodb://localhost/web');
 
 var app = express();
 
