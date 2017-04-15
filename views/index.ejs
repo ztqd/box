@@ -1,33 +1,44 @@
 <%- include templates/header %>
+<div style="background: url('/images/cross.png');height: 41px;line-height: 41px;text-indent: 10px;text-align: center;font-size: 15px;color: #663300">欢迎发表对团队的任何意见，还有自己在学习中的感想</div>
+<br>
+<br>
 
 <div class="col-sm-9">
-<form class="addForm form-horizontal" method="post">
-	<div class="form-group">
-		<textarea name="contant" class="form-control" style="height:100px; resize: none;" placeholder="说说你的想法吧"></textarea>
+	<form class="addForm form-horizontal" method="post">
+		<div class="form-group">
+			<textarea name="contant" class="form-control" style="height:100px; resize: none;" placeholder="说说你的想法吧"></textarea>
+			<br>
+			<input type="submit" value="发表意见" class="addCon btn btn-primary pull-right">
+		</div>
+	</form>
+	<hr>
+	<span class="hint">快来抢沙发~（￣▽￣）~	</span>
+	<div class="">
+		<% vacs.forEach(function(vacs){ %>
+		<div class="contants">
+			<div class="floor">#<span></span></div>
+			<div class="contant">
+				<%= vacs.contant %>
+			</div>
+			<div class="time pull-right">
+				<%= vacs.time %>
+			</div>
+			<hr>
+		</div>
+		<% }); %>
 		<br>
-		<input type="submit" value="发表意见" class="addCon btn btn-primary pull-right">
+		<br>
 	</div>
-</form>
-<hr>
-<span class="hint">快来抢沙发~（￣▽￣）~	</span>
-<div class="">
-	<% vacs.forEach(function(vacs){ %>
-	<div class="contants">
-		<div class="floor">#<span></span></div>
-		<div class="contant">
-			<%= vacs.contant %>
-		</div>
-		<div class="time pull-right">
-			<%= vacs.time %>
-		</div>
-		<hr>
-	</div>
-	<% }); %>
-	<br>
-	<br>
-</div>
 </div>
 
+<div class="col-sm-3" style="padding-left: 30px;">
+<h5>注意事项：</h5>
+<p>*仅支持普通文本编辑，换行符等会被空格取代</p>
+<p>*请不要写恶意攻击代码</p>
+<p>*欢迎指出团队的任何问题，包括团队管理、教学方法等各方面</p>
+
+</div>
+</div>
 <script type="text/javascript">
 	$(function() {
 		var lis = $('.contants');
@@ -41,7 +52,7 @@
 		}
 	 	for (var i = 0;i < $(lis).length; i ++) {
 	 		console.log($(lis[i]).find('.floor').text());
-	 		$(lis[i]).find('.floor span').text(i+1)
+	 		$(lis[i]).find('.floor span').text($(lis).length-i)
 	 	}
 	});
 </script>

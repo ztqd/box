@@ -22,8 +22,9 @@ router.post('/', function(req, res, next) {
 			mon1 = addZero(mon);
 			ho1 = addZero(ho);
 			min1 = addZero(min);
+			sec1 = addZero(sec);
 			var a = date.getFullYear() + '-' + mon1 + '-' + date.getDate() + ' ' +
-							ho1 + ':' + min1;
+							ho1 + ':' + min1 + ':' + sec1;
 			var doc = {contant: req.body.contant,type:'con',time:a};
 			// var doc = {contant: html_encode(req.body.contant),type:'con',time:a};
 			Box.create(doc, function(error){
