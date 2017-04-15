@@ -1,9 +1,18 @@
-/*body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+.contants {
+	padding: 5px 10px;
 }
-
-a {
-  color: #00B7FF;
+.contant {
+	padding: 0 10px;
+	line-height: 20px;
 }
-*/
+.time {
+	font-size: 10px;
+	color: #aaa;
+}
+.floor {
+	color: #888;
+	margin-bottom: 5px;
+}
+.hint {
+	color: #999;
+}

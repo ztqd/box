@@ -1,25 +1,49 @@
 <%- include templates/header %>
-<%= vacs %>
+
+<div class="col-sm-9">
+<form class="addForm form-horizontal" method="post">
+	<div class="form-group">
+		<textarea name="contant" class="form-control" style="height:100px; resize: none;" placeholder="说说你的想法吧"></textarea>
+		<br>
+		<input type="submit" value="发表意见" class="addCon btn btn-primary pull-right">
+	</div>
+</form>
+<hr>
+<span class="hint">快来抢沙发~（￣▽￣）~	</span>
+<div class="">
 	<% vacs.forEach(function(vacs){ %>
-	<div class="panel panel-default articles_div">
+	<div class="contants">
+		<div class="floor">#<span></span></div>
+		<div class="contant">
 			<%= vacs.contant %>
-			dss
+		</div>
+		<div class="time pull-right">
+			<%= vacs.time %>
+		</div>
+		<hr>
 	</div>
 	<% }); %>
-	<form action="">
-		<textarea name="" id="" cols="30" rows="10"></textarea>
-		<input type="button" value="add">
-	</form>
+	<br>
+	<br>
+</div>
+</div>
 
+<script type="text/javascript">
+	$(function() {
+		var lis = $('.contants');
+		if($(lis).length> 5){
+			$(lis).easyPage({
+		    count: 5
+		  });
+		}
+		if($('.contants').length != 0){
+			$('.hint').hide();
+		}
+	 	for (var i = 0;i < $(lis).length; i ++) {
+	 		console.log($(lis[i]).find('.floor').text());
+	 		$(lis[i]).find('.floor span').text(i+1)
+	 	}
+	});
+</script>
 
-<!-- 	<div class="panel panel-primary pull-right">
-  <div class="panel-heading">
-    <h3 class="panel-title">推荐用户</h3>
-  </div>
-  <% vacs.forEach(function(vacs){ %>
-      <div class="panel-body users" style="padding: 10px 60px 10px 10px">
-        <a href="/<%= vacs.name %>/space"><%= vacs.name %></a>
-      </div>
-  <% }); %>
-</div> -->
 <%- include templates/footer %>
