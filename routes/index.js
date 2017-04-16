@@ -32,7 +32,7 @@ router.post('/advise', function(req, res, next) {
       console.log(error);
     }else{
       console.log('save ok');
-      res.redirect('/');
+      res.redirect('/advise');
     }
   });
 	//备份
