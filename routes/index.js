@@ -38,6 +38,11 @@ router.post('/', function(req, res, next) {
 	//备份
 	
 });
+router.get('/rules', function (req, res, next) {
+	res.render('/rules', {
+		title: '规则'
+  });
+});
 function html_encode(str) { //将用户输入的特殊字符进行转义
 	var s = ""; 
 	if (str.length == 0) return ""; 
@@ -50,11 +55,7 @@ function html_encode(str) { //将用户输入的特殊字符进行转义
 	s = s.replace(/\n/g, "<br>"); 
 	return s; 
 }
-router.get('/rules', function (req, res, next) {
-  	res.render('rules', {
-  			title: '规则'
-      });
-});
+
 function addZero(obj){
   return obj.toString().length <= 1?'0' + obj:obj;
 }
