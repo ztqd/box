@@ -39,7 +39,7 @@ router.post('/', function(req, res, next) {
 	
 });
 router.get('/rules', function (req, res, next) {
-	res.render('/rules', {
+	res.render('rules', {
 		title: '规则'
   });
 });
