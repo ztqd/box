@@ -15,26 +15,28 @@ router.get('/', function (req, res, next) {
 });
 router.post('/', function(req, res, next) {
 	var date = new Date();
-			var mon = date.getMonth() + 1, 
-			 ho = date.getHours(), 
-			 min = date.getMinutes(),
-			 sec = date.getSeconds();
-			mon1 = addZero(mon);
-			ho1 = addZero(ho);
-			min1 = addZero(min);
-			sec1 = addZero(sec);
-			var a = date.getFullYear() + '-' + mon1 + '-' + date.getDate() + ' ' +
-							ho1 + ':' + min1 + ':' + sec1;
-			var doc = {contant: req.body.contant,type:'con',time:a};
-			// var doc = {contant: html_encode(req.body.contant),type:'con',time:a};
-			Box.create(doc, function(error){
-		    if(error){
-	        console.log(error);
-		    }else{
-	        console.log('save ok');
-	        res.redirect('/');
-		    }
-		  });
+	var mon = date.getMonth() + 1, 
+	 ho = date.getHours(), 
+	 min = date.getMinutes(),
+	 sec = date.getSeconds();
+	mon1 = addZero(mon);
+	ho1 = addZero(ho);
+	min1 = addZero(min);
+	sec1 = addZero(sec);
+	var a = date.getFullYear() + '-' + mon1 + '-' + date.getDate() + ' ' +
+					ho1 + ':' + min1 + ':' + sec1;
+	var doc = {contant: req.body.contant,type:'con',time:a};
+	// var doc = {contant: html_encode(req.body.contant),type:'con',time:a};
+	Box.create(doc, function(error){
+    if(error){
+      console.log(error);
+    }else{
+      console.log('save ok');
+      res.redirect('/');
+    }
+  });
+	//备份
+	
 });
 function html_encode(str) { //将用户输入的特殊字符进行转义
 	var s = ""; 
