@@ -4,16 +4,16 @@ var router = express.Router();
 var Box = require('./schema');
 var fs = require('fs');
 
-router.get('/', function (req, res, next) {
+router.get('/advise', function (req, res, next) {
   Box.find({type:'con'},function (err, data) {
-  	res.render('index', {
+  	res.render('advise', {
   			title: '意见箱',
        	vacs: data
       });
   })
   .sort({'time':-1});
 });
-router.post('/', function(req, res, next) {
+router.post('/advise', function(req, res, next) {
 	var date = new Date();
 	var mon = date.getMonth() + 1, 
 	 ho = date.getHours(), 
@@ -38,8 +38,8 @@ router.post('/', function(req, res, next) {
 	//备份
 	
 });
-router.get('/rules', function (req, res, next) {
-	res.render('rules', {
+router.get('/', function (req, res, next) {
+	res.render('index', {
 		title: '规则'
   });
 });
